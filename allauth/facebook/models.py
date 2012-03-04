@@ -33,8 +33,10 @@ class FacebookAccount(SocialAccount):
     def get_provider(self):
         return SocialAccountProvider.FACEBOOK
 
-    def get_avatar_url(self):
-        return 'http://graph.facebook.com/%s/picture?type=large' % self.social_id
+    def get_avatar_url(self, size='large', *kwargs):
+        if size not in ['square', 'small', 'normal', 'large']:
+            size = 'large'
+        return 'http://graph.facebook.com/%s/picture?type=%s' % (self.social_id, size)
 
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.social_id)

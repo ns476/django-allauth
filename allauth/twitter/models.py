@@ -32,7 +32,7 @@ class TwitterAccount(SocialAccount):
     def get_profile_url(self):
         return 'http://twitter.com/' + self.username
 
-    def get_avatar_url(self):
+    def get_avatar_url(self, size=None, *kwargs):
         ret = None
         if self.profile_image_url:
             # Hmm, hack to get our hands on the large image.  Not

@@ -17,7 +17,7 @@ class SocialAccount(models.Model):
     def __unicode__(self):
         return unicode(self.user)
     
-    def get_avatar_url(self):
+    def get_avatar_url(self, *kwargs):
         return None
 
     def get_provider(self):
